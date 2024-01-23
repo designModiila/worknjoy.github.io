@@ -313,7 +313,7 @@ header.fixed {
 .partner-wrap ul {
   list-style: none;
   display: flex;
-  gap: 40px;
+  gap: 50px 87px;
   flex-wrap: wrap;
   margin: 40px 0;
   padding: 0;
