@@ -1086,8 +1086,12 @@ footer .footer-copyright {
   position: relative;
 }
 .process-wrap .step-box-01 {
-  margin-right: 150px;
+  margin-right: 60px;
 }
+.process-wrap > div.step-box-04 {
+  align-items: flex-start;
+}
+
 .transparent-box {
   border-radius: 60px;
   border: 5px solid rgba(0, 0, 0, 0.3);
@@ -1212,7 +1216,7 @@ footer .footer-copyright {
   right: 0;
   top: 50%;
   transform: translateX(100%);
-  width: 208px;
+  width: 157px;
   height: 1px;
   background: url(../images/dot_hori_green.png) repeat-x center center;
 }
@@ -1252,7 +1256,7 @@ footer .footer-copyright {
   left: 0;
   top: 50%;
   transform: translateX(-100%);
-  width: 106px;
+  width: 160px;
   height: 1px;
   background: url(../images/dot_hori_green.png) repeat-x center center;
 }
