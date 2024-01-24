@@ -61,3 +61,27 @@
     })(jQuery);
     
 
+//     const container = document.querySelector('.images-line');
+// const images = container.querySelectorAll('.rolling-image');
+// const imageWidth = images[0].offsetWidth + parseInt(getComputedStyle(images[0]).marginLeft) + parseInt(getComputedStyle(images[0]).marginRight);
+
+// // 초기 이미지 복제
+// images.forEach((image) => {
+// const clone = image.cloneNode(true);
+// container.appendChild(clone);
+// });
+
+// let currentPosition = 0;
+
+// function rolling() {
+// currentPosition -= 7; // 이동할 픽셀 양을 5로 조정
+// if (currentPosition < -imageWidth * images.length) {
+//     currentPosition = 0;
+// }
+
+// container.style.transform = `translateX(${currentPosition}px)`;
+
+// setTimeout(rolling, 180); // 200ms마다 이미지 이동
+// }
+
+// window.addEventListener('load', rolling);
