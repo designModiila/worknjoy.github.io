@@ -1,87 +1,136 @@
-
-
-
+// jQuery 메뉴 메이커 플러그인
 (function($) {
-    $.fn.menumaker = function(options) {  
-     var nav = $(this), settings = $.extend({
-       format: "dropdown",
-       sticky: false
-     }, options);
-     return this.each(function() {
-       $(this).find(".button").on('click', function(){
-         $(this).toggleClass('menu-opened');
-         var mainmenu = $(this).next('ul');
-         if (mainmenu.hasClass('open')) { 
-           mainmenu.slideToggle().removeClass('open');
-         }
-         else {
-           mainmenu.slideToggle().addClass('open');
-           if (settings.format === "dropdown") {
-             mainmenu.find('ul').show();
-           }
-         }
-       });
-       nav.find('li ul').parent().addClass('has-sub');
-    multiTg = function() {
-         nav.find(".has-sub").prepend('<span class="submenu-button"></span>');
-         nav.find('.submenu-button').on('click', function() {
-           $(this).toggleClass('submenu-opened');
-           if ($(this).siblings('ul').hasClass('open')) {
-             $(this).siblings('ul').removeClass('open').slideToggle();
-           }
-           else {
-             $(this).siblings('ul').addClass('open').slideToggle();
-           }
-         });
-       };
-       if (settings.format === 'multitoggle') multiTg();
-       else nav.addClass('dropdown');
-       if (settings.sticky === true) nav.css('position', 'fixed');
-    resizeFix = function() {
-      var mediasize = 1000;
-         if ($( window ).width() > mediasize) {
-           nav.find('ul').show();
-         }
-         if ($(window).width() <= mediasize) {
-           nav.find('ul').hide().removeClass('open');
-         }
-       };
-       resizeFix();
-       return $(window).on('resize', resizeFix);
-     });
-      };
-    })(jQuery);
-    
-    (function($){
-    $(document).ready(function(){
-    $("#nav").menumaker({
-       format: "multitoggle"
+  $.fn.menumaker = function(options) {  
+    var settings = $.extend({
+      format: "dropdown",
+      sticky: false
+    }, options);
+
+    return this.each(function() {
+      var nav = $(this);
+      nav.find(".button").on('click', function() {
+        $(this).toggleClass('menu-opened');
+        var mainmenu = $(this).next('ul');
+        mainmenu.slideToggle().toggleClass('open');
+        if (settings.format === "dropdown") {
+          mainmenu.find('ul').show();
+        }
+      });
+
+      nav.find('li ul').parent().addClass('has-sub');
+      if (settings.format === 'multitoggle') {
+        nav.find(".has-sub").prepend('<span class="submenu-button"></span>');
+        nav.find('.submenu-button').on('click', function() {
+          $(this).toggleClass('submenu-opened').siblings('ul').slideToggle().toggleClass('open');
+        });
+      } else {
+        nav.addClass('dropdown');
+      }
+
+      if (settings.sticky === true) {
+        nav.css('position', 'fixed');
+      }
+
+      $(window).on('resize', function() {
+        if ($(window).width() > 1000) {
+          nav.find('ul').show();
+        } else {
+          nav.find('ul').hide().removeClass('open');
+        }
+      }).trigger('resize');
     });
-    });
-    })(jQuery);
-    
+  };
+})(jQuery);
 
-//     const container = document.querySelector('.images-line');
-// const images = container.querySelectorAll('.rolling-image');
-// const imageWidth = images[0].offsetWidth + parseInt(getComputedStyle(images[0]).marginLeft) + parseInt(getComputedStyle(images[0]).marginRight);
+// 메뉴 메이커 초기화
+$(document).ready(function() {
+  $("#nav").menumaker({
+    format: "multitoggle"
+  });
+});
 
-// // 초기 이미지 복제
-// images.forEach((image) => {
-// const clone = image.cloneNode(true);
-// container.appendChild(clone);
-// });
+// 스크롤에 따른 헤더 클래스 토글
+const header = document.getElementById("header");
+window.addEventListener("scroll", function() {
+  header.classList.toggle("fixed", window.pageYOffset > 0);
+});
 
-// let currentPosition = 0;
+gsap.registerPlugin(ScrollTrigger);
+document.querySelectorAll(".content01, .content02, .content03, .content04, .content05, .content06, .content07, .content08, .content09, .content10, .content11, .content12, .content13, .content14").forEach((section, index) => {
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: section,
+      start: "top +300",
+      end: "top +=150",
+      toggleActions: "play none none none"
+    }
+  });
 
-// function rolling() {
-// currentPosition -= 7; // 이동할 픽셀 양을 5로 조정
-// if (currentPosition < -imageWidth * images.length) {
-//     currentPosition = 0;
-// }
 
-// container.style.transform = `translateX(${currentPosition}px)`;
+  // 텍스트 박스 애니메이션
+  tl.fromTo(
+    section.querySelectorAll(".ani__text"),
+    { opacity: 0, transform: "translateY(50%)" },
+    { opacity: 1, transform: "translateY(0%)", delay: 0.3, duration: 0.7 },
+    "show"
+  );
 
-// setTimeout(rolling, 180); // 200ms마다 이미지 이동
-// }
+  tl.fromTo(
+      section.querySelectorAll(".ani__subtext"),
+      { opacity: 0, transform: "translateY(100%)" },
+      { opacity: 1, transform: "translateY(0%)", delay: 0.3, duration: 0.7 },
+      "show"
+    );
 
-// window.addEventListener('load', rolling);
+  tl.fromTo(
+      section.querySelectorAll(".ani__btn"),
+      { opacity: 0, transform: "translateY(80%)" },
+      { opacity: 1, transform: "translateY(0%)", delay: 0.3, duration: 0.7 },
+      "show"
+    );
+});
+
+
+
+
+// Swiper 슬라이더 초기화
+$(document).ready(function() {
+  new Swiper('.swiper-container', {
+    autoHeight: true,
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: "1.5",
+    loop: true,
+    loopedSlides: 3,
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 41,
+      depth: 300,
+      modifier: 2,
+      slideShadows: true
+    },
+    autoplay: {
+      delay: 10000,
+      disableOnInteraction: false
+    },
+    navigation: {
+      nextEl: ".swiper-container-wrap .swiper-button-next",
+      prevEl: ".swiper-container-wrap .swiper-button-prev"
+    }
+  });
+});
+
+
+   const btnFree = document.getElementById('btnFree');
+   const content01 = document.querySelector('.content01');
+   const content14 = document.querySelector('.content14');
+   
+   window.addEventListener('scroll', function() {
+     const content01Bottom = content01.getBoundingClientRect().bottom;
+     const content14Top = content14.getBoundingClientRect().top;
+     const viewportHeight = window.innerHeight;
+   
+     btnFree.classList.toggle('floating', content01Bottom < 0 && content14Top >= viewportHeight);
+     btnFree.classList.toggle('hidden', content14Top < viewportHeight);
+   });

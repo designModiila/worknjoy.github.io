@@ -24,7 +24,7 @@ header {
   background-color: #121212;
   padding: 29px 0;
   transition: top 0.3s;
-  z-index: 10;
+  z-index: 300;
 }
 header .header-inner {
   width: 1280px;
@@ -329,7 +329,7 @@ header.fixed {
   bottom: 20px; /* 화면 하단에서의 위치 */
   left: 50%; /* 화면 우측에서의 위치 */
   z-index: 100; /* 다른 요소 위에 표시 */
-  transform: translateX(-50%);
+  transform: translateX(-50%) !important;
   transition: bottom 0.3s;
 }
 #btnFree.hidden {
@@ -391,6 +391,7 @@ header.fixed {
 }
 .content03 {
   background-color: #121212;
+  padding: 140px 0 75px 0;
 }
 
 .content03 .para-title {
@@ -425,7 +426,7 @@ header.fixed {
 }
 .box-gray .bx-left {
   position: relative;
-  z-index: 100;
+  z-index: 10;
 }
 .box-gray .bx-right {
   margin-left: -270px;
@@ -682,7 +683,7 @@ footer .footer-copyright {
 .swiper-container-no-flexbox .swiper-slide {
   float: left;
 }
-
+/* 
 .swiper-container-vertical > .swiper-wrapper {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -691,7 +692,7 @@ footer .footer-copyright {
   -moz-box-orient: vertical;
   -moz-box-direction: normal;
   flex-direction: column;
-}
+} */
 
 .swiper-wrapper {
   position: relative;
@@ -1040,9 +1041,7 @@ footer .footer-copyright {
   width: 100%;
   overflow: hidden;
 }
-/* .swiper-container .swiper-wrapper .swiper-slide.swiper-slide-active {
-  width: 800px;
-} */
+
 .swiper-container .swiper-wrapper .swiper-slide.swiper-slide-active .img-wrap {
   background: transparent;
   margin-bottom: 0;
@@ -1155,7 +1154,7 @@ footer .footer-copyright {
   top: 100%;
   transform: translateX(-50%);
   width: 1px;
-  height: 240px;
+  height: 226px;
   background: url(../images/dot_red.png) repeat-y center top;
 }
 .step-box-03 .round-square::before {
@@ -1269,7 +1268,7 @@ footer .footer-copyright {
   top: 0;
   transform: translateY(-100%);
   width: 1px;
-  height: 106px;
+  height: 102px;
   background: url(../images/dot_green.png) no-repeat center top;
 }
 
