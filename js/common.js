@@ -56,12 +56,12 @@ window.addEventListener("scroll", function() {
 });
 
 gsap.registerPlugin(ScrollTrigger);
-document.querySelectorAll(".content01, .content02, .content03, .content04, .content05, .content06, .content07, .content08, .content09, .content10, .content11, .content12, .content13, .content14").forEach((section, index) => {
+document.querySelectorAll(".content02, .content04, .content06, .content07, .content08, .content09, .content10, .content13").forEach((section, index) => {
   let tl = gsap.timeline({
     scrollTrigger: {
       trigger: section,
-      start: "top +300",
-      end: "top +=150",
+      start: "top +50%",
+      end: "top +=400",
       toggleActions: "play none none none"
     }
   });
@@ -75,23 +75,173 @@ document.querySelectorAll(".content01, .content02, .content03, .content04, .cont
     "show"
   );
 
+
   tl.fromTo(
       section.querySelectorAll(".ani__subtext"),
-      { opacity: 0, transform: "translateY(100%)" },
-      { opacity: 1, transform: "translateY(0%)", delay: 0.3, duration: 0.7 },
+      { opacity: 0, transform: "translateY(200%)" },
+      { opacity: 1, transform: "translateY(0%)", delay: 0.5, duration: 0.7 },
       "show"
     );
 
-  tl.fromTo(
+    tl.fromTo(
       section.querySelectorAll(".ani__btn"),
-      { opacity: 0, transform: "translateY(80%)" },
-      { opacity: 1, transform: "translateY(0%)", delay: 0.3, duration: 0.7 },
+      { opacity: 0, transform: "translateY(100%)" },
+      { opacity: 1, transform: "translateY(0%)", delay: 0.7, duration: 0.7 },
       "show"
     );
+
 });
 
+document.querySelectorAll(".content03, .content11, .content14").forEach((section2, index) => {
+  let tl2 = gsap.timeline({
+    scrollTrigger: {
+      trigger: section2,
+      start: "top +50%",
+      end: "top +=300",
+      toggleActions: "play none none none"
+    }
+  });
 
 
+  // 텍스트 박스 애니메이션
+  tl2.fromTo(
+    section2.querySelectorAll(".ani__text"),
+    { opacity: 0, transform: "translateY(100%)" },
+    { opacity: 1, transform: "translateY(0%)", delay: 0.3, duration: 0.7 },
+    "show"
+  );
+  tl2.fromTo(
+      section2.querySelectorAll(".ani__subtext"),
+      { opacity: 0, transform: "translateY(200%)" },
+      { opacity: 1, transform: "translateY(0%)", delay: 0.5, duration: 0.7 },
+      "show"
+    );
+
+    tl2.fromTo(
+      section2.querySelectorAll(".ani__btn"),
+      { opacity: 0, transform: "translateY(100%)" },
+      { opacity: 1, transform: "translateY(0%)", delay: 0.7, duration: 0.7 },
+      "show"
+    );
+
+});
+
+document.querySelectorAll(".content01").forEach((section3, index) => {
+  let tl3 = gsap.timeline({
+    scrollTrigger: {
+      trigger: section3,
+      start: "top +300",
+      end: "top +=180",
+      toggleActions: "play none none none"
+    }
+  });
+
+
+  // 텍스트 박스 애니메이션
+  tl3.fromTo(
+    section3.querySelectorAll(".ani__text"),
+    { opacity: 0, transform: "translateY(50%)" },
+    { opacity: 1, transform: "translateY(0%)", delay: 0.3, duration: 0.7 },
+    "show"
+  );
+
+  tl3.fromTo(
+    section3.querySelectorAll(".ani__btn"),
+    { opacity: 0, transform: "translateY(100%)" },
+    { opacity: 1, transform: "translateY(0%)", delay: 0.5, duration: 0.7 },
+    "show"
+  );
+
+  tl3.fromTo(
+      section3.querySelectorAll(".ani__subtext"),
+      { opacity: 0, transform: "translateY(200%)" },
+      { opacity: 1, transform: "translateY(0%)", delay: 0.7, duration: 0.7 },
+      "show"
+    );
+
+
+});
+
+document.querySelectorAll(".content05").forEach((section4, index) => {
+  let tl3 = gsap.timeline({
+    scrollTrigger: {
+      trigger: section4,
+      start: "top +50%",
+      end: "top +=300",
+      toggleActions: "play none none none"
+    }
+  });
+
+
+  // 텍스트 박스 애니메이션
+  tl3.fromTo(
+    section4.querySelectorAll(".ani__text"),
+    { opacity: 0, transform: "translateY(50%)" },
+    { opacity: 1, transform: "translateY(0%)", delay: 0.3, duration: 0.7 },
+    "show"
+  );
+
+
+  tl3.fromTo(
+      section4.querySelectorAll(".ani__subtext"),
+      { opacity: 0, transform: "translateY(100%)" },
+      { opacity: 1, transform: "translateY(0%)", delay: 0.5, duration: 0.7 },
+      "show"
+    );
+    tl3.fromTo(
+      section4.querySelectorAll(".ani__thumbnail"),
+      { opacity: 0, transform: "translateY(30%)" },
+      { opacity: 1, transform: "translateY(0%)", delay: 0.5, duration: 0.7 },
+      "show"
+    );
+    tl3.fromTo(
+      section4.querySelectorAll(".ani__btn"),
+      { opacity: 0, transform: "translateY(100%)" },
+      { opacity: 1, transform: "translateY(0%)", delay: 0.7, duration: 0.7 },
+      "show"
+    );
+
+});
+document.querySelectorAll(".content12").forEach((section5, index) => {
+  let tl4 = gsap.timeline({
+    scrollTrigger: {
+      trigger: section5,
+      start: "top +300",
+      end: "top +=180",
+      toggleActions: "play none none none"
+    }
+  });
+
+
+  // 텍스트 박스 애니메이션
+  tl4.fromTo(
+    section5.querySelectorAll(".ani__text"),
+    { opacity: 0, transform: "translateY(50%)" },
+    { opacity: 1, transform: "translateY(0%)", delay: 0.3, duration: 0.7 },
+    "show"
+  );
+
+
+  tl4.fromTo(
+      section5.querySelectorAll(".ani__subtext"),
+      { opacity: 0, transform: "translateY(100%)" },
+      { opacity: 1, transform: "translateY(0%)", delay: 0.5, duration: 0.7 },
+      "show"
+    );
+    tl4.fromTo(
+      section5.querySelectorAll(".ani__thumbnail"),
+      { opacity: 0, transform: "translateY(50%)" },
+      { opacity: 1, transform: "translateY(0%)", delay: 0.5, duration: 1 },
+      "show"
+    );
+    tl4.fromTo(
+      section5.querySelectorAll(".ani__btn"),
+      { opacity: 0, transform: "translateY(100%)" },
+      { opacity: 1, transform: "translateY(0%)", delay: 0.7, duration: 0.7 },
+      "show"
+    );
+
+});
 
 // Swiper 슬라이더 초기화
 $(document).ready(function() {
